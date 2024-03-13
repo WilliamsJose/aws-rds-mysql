@@ -16,3 +16,9 @@
   terraform init
   terraform apply
 ```
+
+### Connect
+after changing **publicly_accessible** to true
+```shell
+mysql -h $(terraform output -raw rds_hostname) -P $(terraform output -raw rds_port) -u $(terraform output -raw rds_username) -p
+```
